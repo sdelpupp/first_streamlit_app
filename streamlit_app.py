@@ -1,9 +1,9 @@
 
 import streamlit 
 
-streamlit.title('Questo è il titolo')
 
-
-streamlit.header('this is my header')
-
-streamlit.text('This is a text')
+streamlit.header('Breakfast Menu')
+streamlit.text('🥣 Omega 3 & Blueberry Oatmeal')
+streamlit.text('🥗 Kale, Spinach & Rocket Smoothie')
+streamlit.text('🐔 Hard-Boiled Free-Range Egg')
+streamlit.text('🥑🍞Avocado toast') 
