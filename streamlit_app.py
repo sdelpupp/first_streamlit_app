@@ -11,6 +11,15 @@ streamlit.text('🥗 Kale, Spinach & Rocket Smoothie')
 streamlit.text('🐔 Hard-Boiled Free-Range Egg')
 streamlit.text('🥑🍞Avocado toast') 
 
+def get_fruityvice_data(this_fruit_choice):
+    #streamlit.write('The user entered ', fruit_choice)
+    fruityvice_response = requests.get("https://fruityvice.com/api/fruit/" + fruit_choice )
+    # write your own comment -what does the next line do? 
+    fruityvice_normalized = pd.json_normalize(fruityvice_response.json())
+    # write your own comment - what does this do?
+    return fruityvice_normalized
+  
+
 
 streamlit.header('🍌🥭 Build Your Own Fruit Smoothie 🥝🍇')
 
@@ -33,15 +42,13 @@ try:
   if not fruit_choice:
     streamlit.error("Please select a fruit to get information")
   else:
-    #streamlit.write('The user entered ', fruit_choice)
-    fruityvice_response = requests.get("https://fruityvice.com/api/fruit/" + fruit_choice )
-    # write your own comment -what does the next line do? 
-    fruityvice_normalized = pd.json_normalize(fruityvice_response.json())
-    # write your own comment - what does this do?
-    streamlit.dataframe(fruityvice_normalized)
+    back_from_function = get_fruityvice_data( fruit_choice )
+    streamlit.dataframe( back_from_function )
 except URLError as e:
   streamlit.error()
 
+  
+  
 
 
 streamlit.stop()
