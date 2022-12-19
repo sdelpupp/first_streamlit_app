@@ -1,6 +1,7 @@
-
 import streamlit 
 import pandas as pd
+import urllib.error import URLError
+
 import snowflake.connector 
 
 
@@ -51,7 +52,7 @@ streamlit.text(my_data_row)
 add_my_fruit = streamlit.text_input("Add another fruit:")
 my_cur.execute("INSERT INTO fruit_load_list VALUES ('from streamlit');")
 
-
+streamlit.stop()
 
 
 
