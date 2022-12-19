@@ -49,7 +49,7 @@ streamlit.text(my_data_row)
 
 
 add_my_fruit = streamlit.text_input("Add another fruit:")
-my_cur.execute("INSERT INTO fruit_load_list VALUES (" + add_my_fruit + ");")
+my_cur.execute("INSERT INTO fruit_load_list VALUES ('from streamlit');")
 
 
 
