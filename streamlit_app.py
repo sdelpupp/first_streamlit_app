@@ -40,6 +40,7 @@ streamlit.dataframe(fruityvice_normalized)
 
 
 
+streamlit.stop()
 
 my_cnx = snowflake.connector.connect(**streamlit.secrets)
 my_cur = my_cnx.cursor()
@@ -52,7 +53,6 @@ streamlit.text(my_data_row)
 add_my_fruit = streamlit.text_input("Add another fruit:")
 my_cur.execute("INSERT INTO fruit_load_list VALUES ('from streamlit');")
 
-streamlit.stop()
 
 
 
